@@ -32,6 +32,7 @@ GameMenu.prototype = {
       target.stroke = "rgba(200,200,200,0.5)";
       txt.useHandCursor = true;
     };
+      
     var onOut = function (target) {
       target.fill = "white";
       target.stroke = "rgba(0,0,0,0)";

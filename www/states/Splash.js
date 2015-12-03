@@ -16,7 +16,7 @@ Splash.prototype = {
   loadBgm: function () {
     // thanks Kevin Macleod at http://incompetech.com/
     game.load.audio('dangerous', 'assets/bgm/background_music.mp3');
-    game.load.audio('exit', 'assets/bgm/background_music.mp3');
+    game.load.audio('startDing', 'assets/bgm/startDing.wav');
   },
   // varios freebies found from google image search
   loadImages: function () {
@@ -66,15 +66,16 @@ Splash.prototype = {
   },
 
   addGameMusic: function () {
-    music = game.add.audio('dangerous');
-    music.loop = true;
-    music.play();
+    music = this.add.audio('dangerous');
+    music.play('', 0, 1, true);
+    //.play('startMarker', startPosition, volume(0 to 1), loop t/f)
   },
 
   create: function() {
     this.status.setText('Ready!');
     this.addGameStates();
     this.addGameMusic();
+    this.add.audio('startDing');  
 
     setTimeout(function () {
       game.state.start("GameMenu");
